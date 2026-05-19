@@ -19,7 +19,7 @@ export const config = {
   ],
 
   now: [
-    { k: "shipping", v: "RLHF data tooling @ Micro1" },
+    { k: "shipping", v: "Distributed systems and agentic workflows" },
     { k: "reading", v: "Designing Data-Intensive Apps", em: "(again)" },
     { k: "learning", v: "Rust + tokio", em: "for fun" },
     { k: "fueled by", v: "filter coffee" },
