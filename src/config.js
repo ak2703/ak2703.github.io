@@ -42,7 +42,8 @@ export const config = {
   },
 
   experience: [
-    { when: "2023 → now", role: "Sr. Software Engineer", company: "Micro1", place: "Remote", tags: ["RLHF", "Spring", "Kafka", "Postgres"], badge: "current", detail: "Building backend systems for prompt-engineering workflows and RLHF-driven model evaluation. Designed data pipelines that ingest, deduplicate and route human-feedback signals into training datasets." },
+    { when: "2024 → Sep 2025", role: "Sr. Software Engineer", company: "Wrkspot", place: "Remote", tags: ["IoT", "Spring", "Kafka", "Postgres"], badge: "current", detail: "Owned end-to-end development of scheduling, access control, licensing, onboarding on IoT hospitality SaaS." },
+    { when: "2023 → Aug 2024", role: "Sr. Software Engineer", company: "Micro1", place: "Remote", tags: ["RLHF", "Spring", "Kafka", "Postgres"], detail: "Building backend systems for prompt-engineering workflows and RLHF-driven model evaluation. Designed data pipelines that ingest, deduplicate and route human-feedback signals into training datasets." },
     { when: "2021 → 2023", role: "Software Engineer", company: "Immobel", place: "Colorado, US (remote)", tags: ["Java", "Microservices", "AWS"], detail: "Automated real-estate operational workflows and built cross-brand referral systems that unified lead data across business units." },
     { when: "2018 → 2021", role: "Full Stack Developer", company: "School of the Nations", place: "Macau, China", tags: ["Spring", "Angular", "MySQL", "SOLR"], detail: "Led the build of SONIS — a school-wide ERP serving thousands of users daily. Integrated Macau-Pay for in-app payments, redesigned the reporting service for 80% lower latency." },
     { when: "2017 → 2018", role: "Software Engineer", company: "Walkover", place: "Indore, India", tags: ["AWS", "Search", "Infra"], detail: "Shipped an 8× search-performance improvement by re-thinking inverted-index sharding and query planning." },
