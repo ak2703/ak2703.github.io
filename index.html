@@ -1,142 +1,1946 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akshay Vilekar | Backend Developer</title>
-    <meta
-      name="description"
-      content="Backend developer portfolio of Akshay Vilekar with projects, experience, and education."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="logo" href="#top">Akshay Vilekar</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-      </nav>
-    </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>akshay.os — Akshay Vilekar</title>
+<meta name="description" content="Backend engineer's portfolio rendered as a retro desktop." />
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Backend Engineer</p>
-          <h1>Building scalable systems that serve real users at high volume.</h1>
-          <p>
-            A passionate individual who thrives on building end-to-end products that create sustainable,
-            scalable social and technical impact.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="https://github.com/ak2703" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/akshay-vilekar-b25a2584/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="mailto:contact@akshayvilekar.me">Email</a>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=VT323&display=swap" rel="stylesheet" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+/* ============================================================
+   akshay.os — Retro desktop portfolio
+   Cream paper, chunky borders, hard offset shadows.
+   ============================================================ */
+
+:root {
+  --paper:    #f3ecd6;
+  --paper-2:  #e9e0c4;
+  --paper-3:  #ddd2b0;
+  --ink:      #1a1814;
+  --ink-2:    #3a342a;
+  --mute:     #6f6a5e;
+  --dim:      #a8a292;
+
+  --red:      #ee4d3a;
+  --blue:     #2a6df2;
+  --yellow:   #ffd34d;
+  --mint:     #69d29e;
+  --pink:     #ff8fb8;
+  --purple:   #9a6bff;
+  --orange:   #ff9333;
+  --teal:     #46c2c2;
+
+  --shadow:    4px 4px 0 var(--ink);
+  --shadow-lg: 6px 6px 0 var(--ink);
+  --shadow-sm: 2px 2px 0 var(--ink);
+
+  --border:      2.5px solid var(--ink);
+  --border-thin: 1.5px solid var(--ink);
+
+  --f-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --f-sans:    "Plus Jakarta Sans", "Inter", ui-sans-serif, sans-serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --f-hand:    "Caveat", "Comic Sans MS", cursive;
+  --f-pixel:   "VT323", "JetBrains Mono", ui-monospace, monospace;
+
+  --menu-h:  34px;
+  --dock-h:  56px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+
+  /* Halftone-ish dot wallpaper */
+  background-image:
+    radial-gradient(circle at 1.5px 1.5px, color-mix(in oklab, var(--ink) 18%, transparent) 1.5px, transparent 0),
+    radial-gradient(circle at 12px 12px, color-mix(in oklab, var(--red) 22%, transparent) 1px, transparent 0);
+  background-size: 24px 24px, 48px 48px;
+}
+
+::selection { background: var(--yellow); color: var(--ink); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+
+/* ---------- Menu bar ---------- */
+.menubar {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--menu-h);
+  z-index: 1000;
+  background: var(--paper-2);
+  border-bottom: var(--border);
+  display: flex; align-items: center;
+  padding: 0 16px;
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.005em;
+  user-select: none;
+}
+.menubar .apple {
+  width: 22px; height: 22px;
+  background: var(--ink); color: var(--paper);
+  display: grid; place-items: center;
+  border-radius: 4px; margin-right: 14px;
+  font-family: var(--f-display); font-weight: 700;
+  font-size: 12px;
+}
+.menubar .m-item {
+  padding: 4px 12px; border-radius: 4px;
+  cursor: pointer;
+  transition: background 100ms;
+}
+.menubar .m-item:hover { background: var(--ink); color: var(--paper); }
+.menubar .m-item.bold { font-weight: 700; }
+.menubar .m-item.open { background: var(--ink); color: var(--paper); }
+.menubar .spacer { flex: 1; }
+
+/* ---------- Menu dropdowns ---------- */
+.menu { position: relative; display: inline-block; }
+.menu-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  background: var(--paper);
+  border: var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  min-width: 220px;
+  padding: 6px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 1500;
+  animation: dropOpen 140ms cubic-bezier(.2,.6,.2,1);
+  color: var(--ink);
+}
+@keyframes dropOpen { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.menu-dropdown.right { right: 0; left: auto; }
+.menu-row {
+  padding: 7px 12px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.menu-row:hover { background: var(--ink); color: var(--paper); }
+.menu-row.disabled { opacity: 0.4; cursor: default; }
+.menu-row.disabled:hover { background: transparent; color: inherit; }
+.menu-row .ic { width: 18px; font-family: var(--f-mono); font-size: 13px; color: var(--mute); flex-shrink: 0; }
+.menu-row:hover .ic { color: var(--yellow); }
+.menu-row .lab { flex: 1; }
+.menu-row .hint { font-family: var(--f-mono); font-size: 10px; color: var(--mute); }
+.menu-row:hover .hint { color: var(--yellow); }
+.menu-divider { border-top: 1.5px dashed var(--paper-3); margin: 4px -6px; }
+
+/* Contact card head inside dropdown */
+.menu-contact-head {
+  display: flex; gap: 12px; align-items: center;
+  padding: 6px 8px 12px;
+  margin-bottom: 4px;
+  border-bottom: 1.5px dashed var(--paper-3);
+}
+.menu-contact-head .avatar {
+  width: 40px; height: 40px;
+  background: var(--blue);
+  color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  display: grid; place-items: center;
+  font-family: var(--f-display); font-weight: 700; font-size: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.menu-contact-head .info .nm { font-family: var(--f-display); font-weight: 700; font-size: 14px; letter-spacing: -0.01em; }
+.menu-contact-head .info .sub { font-family: var(--f-mono); font-size: 11px; color: var(--mute); margin-top: 1px; }
+
+/* Contact button (right side) */
+.contact-button {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 24px; padding: 0 10px;
+  background: var(--red); color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 12px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 100ms, box-shadow 100ms;
+  margin-right: 4px;
+}
+.contact-button:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+.contact-button.open { background: var(--ink); color: var(--yellow); }
+
+/* Empty / new note window content */
+.note-empty {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  white-space: pre-wrap;
+  outline: none;
+  min-height: 100%;
+}
+.note-empty[contenteditable="true"]:empty::before {
+  content: attr(data-placeholder);
+  color: var(--dim);
+  font-style: italic;
+}
+.menubar .meta {
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--f-mono); font-size: 12px;
+  color: var(--ink-2);
+}
+.menubar .meta .live::before {
+  content: ""; display: inline-block;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--mint); margin-right: 6px;
+  border: 1.5px solid var(--ink); vertical-align: 0;
+}
+@media (max-width: 720px) {
+  .menubar .m-item:not(.bold):not(.help) { display: none; }
+  .menubar .meta .hide-sm { display: none; }
+}
+
+/* ---------- Desktop ---------- */
+.desktop {
+  position: fixed;
+  top: var(--menu-h);
+  left: 0;
+  right: 0;
+  bottom: var(--dock-h);
+  overflow: hidden;
+}
+
+/* Icon grid on the desktop */
+.desktop-icons {
+  position: absolute;
+  top: 24px; left: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 96px);
+  grid-auto-rows: 110px;
+  gap: 8px 12px;
+  max-height: calc(100% - 48px);
+  align-content: start;
+}
+@media (max-width: 760px) {
+  .desktop-icons {
+    grid-template-columns: repeat(auto-fill, 76px);
+    grid-auto-rows: 92px;
+    top: 12px; left: 12px;
+  }
+}
+
+.icon {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  transition: background 80ms;
+}
+.icon:hover { background: color-mix(in oklab, var(--ink) 6%, transparent); }
+.icon.selected { background: color-mix(in oklab, var(--ink) 16%, transparent); }
+.icon svg { width: 56px; height: 56px; display: block; }
+.icon .name {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: -0.005em;
+  line-height: 1.15;
+  background: color-mix(in oklab, var(--paper) 90%, transparent);
+  padding: 1px 6px;
+  border-radius: 3px;
+  max-width: 100%;
+  text-wrap: balance;
+}
+.icon.selected .name { background: var(--blue); color: #fff; border: 1.5px solid var(--ink); }
+@media (max-width: 760px) {
+  .icon svg { width: 44px; height: 44px; }
+  .icon .name { font-size: 11px; }
+}
+
+/* ---------- Window ---------- */
+.window {
+  position: absolute;
+  background: var(--paper);
+  border: var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  display: flex; flex-direction: column;
+  min-width: 280px;
+  overflow: hidden;
+  animation: winOpen 220ms cubic-bezier(.2,.6,.2,1);
+}
+@keyframes winOpen { from { opacity: 0; transform: scale(.96) translateY(8px); } to { opacity: 1; transform: none; } }
+
+.window.minimized { display: none; }
+
+.window-title {
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 12px;
+  background: var(--paper-2);
+  border-bottom: var(--border);
+  cursor: grab;
+  user-select: none;
+  position: relative;
+}
+.window-title:active { cursor: grabbing; }
+.window-title.striped {
+  background-image:
+    repeating-linear-gradient(0deg,
+      var(--paper-2) 0 3px,
+      var(--paper-3) 3px 6px);
+}
+.window.focused .window-title { background: var(--yellow); background-image: repeating-linear-gradient(0deg, var(--yellow) 0 3px, color-mix(in oklab, var(--yellow) 70%, var(--ink) 12%) 3px 6px); }
+.window-buttons { display: flex; gap: 6px; }
+.win-btn {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  display: grid; place-items: center;
+  font-family: var(--f-mono); font-size: 9px;
+  color: transparent;
+  transition: color 100ms;
+}
+.win-btn:hover { color: var(--ink); }
+.win-btn.close { background: var(--red); }
+.win-btn.min { background: var(--yellow); }
+.win-btn.max { background: var(--mint); }
+.window-name {
+  flex: 1; text-align: center;
+  font-family: var(--f-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.window-name .ico { margin-right: 6px; opacity: 0.7; }
+
+.window-body {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--paper);
+  position: relative;
+}
+.window-body.padded { padding: 22px 24px; }
+.window-statusbar {
+  border-top: var(--border-thin);
+  padding: 4px 12px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--mute);
+  background: var(--paper-2);
+  display: flex; justify-content: space-between; gap: 12px;
+}
+
+/* ---------- Dock ---------- */
+.dock {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: var(--dock-h);
+  background: var(--paper-2);
+  border-top: var(--border);
+  z-index: 1000;
+  display: flex; align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  user-select: none;
+}
+.dock .start-btn {
+  height: 38px;
+  padding: 0 14px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 8px;
+  border: var(--border-thin);
+  display: inline-flex; gap: 8px; align-items: center;
+  font-family: var(--f-display);
+  font-weight: 600; font-size: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 120ms, box-shadow 120ms;
+}
+.dock .start-btn:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); background: var(--red); }
+.dock .start-btn .dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--mint);
+  border: 1.5px solid var(--paper);
+}
+.dock .open-list {
+  display: flex; gap: 6px; align-items: center;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.dock .open-list::-webkit-scrollbar { display: none; }
+.dock-tab {
+  height: 34px;
+  padding: 0 12px;
+  background: var(--paper);
+  border: var(--border-thin);
+  border-radius: 6px;
+  display: inline-flex; gap: 8px; align-items: center;
+  font-family: var(--f-mono); font-size: 12px;
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: transform 100ms, background 120ms;
+}
+.dock-tab:hover { transform: translate(-1px,-1px); }
+.dock-tab.active { background: var(--yellow); }
+.dock .meta-right { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.dock .clock { font-family: var(--f-mono); font-size: 12px; color: var(--ink); padding: 0 8px; }
+.dock .iconbtn {
+  width: 34px; height: 34px;
+  border: var(--border-thin); border-radius: 6px;
+  background: var(--paper);
+  display: grid; place-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 100ms, background 120ms;
+}
+.dock .iconbtn:hover { transform: translate(-1px,-1px); background: var(--yellow); }
+
+@media (max-width: 720px) {
+  .dock .meta-right .hide-sm { display: none; }
+}
+
+/* ---------- Welcome content ---------- */
+.welcome {
+  font-family: var(--f-sans);
+  padding: 6px 0 0;
+}
+.welcome .hi {
+  font-family: var(--f-hand);
+  font-size: 28px;
+  color: var(--red);
+  margin-bottom: 0;
+  line-height: 1;
+}
+.welcome h1 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 44px;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  margin: 6px 0 16px;
+}
+.welcome h1 .hl { background: var(--yellow); padding: 0 6px; border: 1.5px solid var(--ink); display: inline-block; transform: rotate(-1deg); }
+.welcome h1 .scribble { color: var(--red); position: relative; font-style: italic; white-space: nowrap; }
+.welcome h1 .scribble::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 12px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14'><path d='M2 8 Q 25 2 50 8 T 100 8 T 150 8 T 198 8' stroke='%23ee4d3a' stroke-width='3.5' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat; background-size: 100% 100%;
+}
+.welcome p { font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0 0 14px; }
+.welcome p strong { background: color-mix(in oklab, var(--yellow) 55%, transparent); padding: 0 3px; font-weight: 600; }
+.welcome .arrows {
+  font-family: var(--f-mono); font-size: 12px;
+  color: var(--mute); margin-top: 18px;
+  display: flex; flex-direction: column; gap: 4px;
+  border-top: 1px dashed var(--mute);
+  padding-top: 14px;
+}
+.welcome .arrows .row { display: flex; gap: 10px; }
+.welcome .arrows .row .k { color: var(--red); font-weight: 600; min-width: 90px; }
+.welcome .arrows .row .v strong { font-weight: 600; color: var(--ink); }
+
+/* ---------- Common content patterns ---------- */
+h2.win-h {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.025em;
+  margin: 0 0 6px;
+  line-height: 1.05;
+}
+h2.win-h em {
+  font-family: var(--f-hand);
+  font-style: normal;
+  font-weight: 500;
+  color: var(--red);
+  font-size: 1.05em;
+}
+.win-sub {
+  font-family: var(--f-mono); font-size: 11px;
+  color: var(--mute); letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.win-body p { color: var(--ink-2); line-height: 1.65; margin: 0 0 14px; }
+.win-body p strong { font-weight: 600; color: var(--ink); }
+
+/* Stickers (used in about) */
+.stickers { display: flex; flex-wrap: wrap; gap: 8px; }
+.sticker {
+  font-family: var(--f-display); font-weight: 600; font-size: 13px;
+  padding: 5px 12px; border: var(--border-thin); border-radius: 100px;
+  box-shadow: var(--shadow-sm); background: var(--paper);
+  cursor: default;
+  transition: transform 140ms;
+}
+.sticker:hover { transform: translate(-1px,-1px) rotate(-2deg); }
+.sticker.c-yellow { background: var(--yellow); }
+.sticker.c-blue   { background: var(--blue); color: #fff; }
+.sticker.c-mint   { background: var(--mint); }
+.sticker.c-pink   { background: var(--pink); }
+.sticker.c-red    { background: var(--red); color: #fff; }
+.sticker.c-purple { background: var(--purple); color: #fff; }
+.sticker.c-orange { background: var(--orange); color: #fff; }
+
+.kv-list { display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
+.kv-list .row { display: grid; grid-template-columns: 110px 1fr; gap: 12px; font-size: 14px; }
+.kv-list .row .k { font-family: var(--f-mono); font-size: 11px; color: var(--mute); letter-spacing: 0.08em; text-transform: uppercase; padding-top: 2px; }
+.kv-list .row .v { color: var(--ink); font-weight: 500; }
+.kv-list .row .v .em { color: var(--red); font-family: var(--f-hand); font-size: 17px; margin-left: 4px; }
+
+/* Experience list */
+.exp-list { display: flex; flex-direction: column; }
+.exp-entry {
+  padding: 16px 0;
+  border-top: 1.5px dashed var(--paper-3);
+  cursor: pointer;
+}
+.exp-entry:first-child { border-top: 0; padding-top: 4px; }
+.exp-entry-head { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.exp-entry .role { font-family: var(--f-display); font-weight: 700; font-size: 18px; letter-spacing: -0.015em; }
+.exp-entry .role .at { color: var(--mute); font-weight: 500; }
+.exp-entry .when { font-family: var(--f-mono); font-size: 11px; color: var(--mute); white-space: nowrap; }
+.exp-entry .place { font-family: var(--f-mono); font-size: 11px; color: var(--mute); margin-top: 4px; }
+.exp-entry .badge { font-family: var(--f-mono); font-size: 10px; padding: 2px 8px; border: 1.5px solid var(--red); border-radius: 100px; background: var(--red); color: #fff; margin-left: 8px; }
+.exp-entry .tags { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.exp-entry .chip { font-family: var(--f-mono); font-size: 10px; padding: 2px 7px; border: 1.5px solid var(--ink); border-radius: 100px; background: var(--paper-2); }
+.exp-entry .chip.c1 { background: var(--yellow); }
+.exp-entry .chip.c2 { background: var(--mint); }
+.exp-entry .chip.c3 { background: var(--pink); }
+.exp-entry .chip.c4 { background: var(--blue); color: #fff; }
+.exp-entry .detail {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms, margin 280ms;
+  font-size: 14px; line-height: 1.6; color: var(--ink-2);
+  margin-top: 0;
+}
+.exp-entry .detail > div { overflow: hidden; }
+.exp-entry[data-open="true"] .detail { grid-template-rows: 1fr; margin-top: 12px; }
+
+/* Stack list (inside skills window) */
+.stack-list { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.stack-group h4 {
+  font-family: var(--f-display); font-weight: 700; font-size: 14px;
+  margin: 0 0 8px; padding: 2px 10px; border: 1.5px solid var(--ink); border-radius: 6px;
+  display: inline-block;
+}
+.stack-group:nth-child(1) h4 { background: var(--yellow); }
+.stack-group:nth-child(2) h4 { background: var(--mint); }
+.stack-group:nth-child(3) h4 { background: var(--pink); }
+.stack-group:nth-child(4) h4 { background: var(--blue); color: #fff; }
+.stack-group ul { list-style: none; padding: 0; margin: 0; }
+.stack-group li {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 4px 0;
+  border-bottom: 1.5px dashed var(--paper-3);
+  font-size: 14px;
+  font-weight: 500;
+}
+.stack-group li .lvl { font-family: var(--f-mono); font-size: 10px; color: var(--mute); }
+
+/* Projects (file list inside projects window) */
+.proj-list { display: flex; flex-direction: column; }
+.proj-item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.proj-item:hover { background: var(--paper-2); border-color: var(--ink); }
+.proj-item .ic { width: 44px; height: 44px; display: grid; place-items: center; }
+.proj-item .info .nm { font-family: var(--f-display); font-weight: 700; font-size: 16px; letter-spacing: -0.015em; }
+.proj-item .info .sub { font-family: var(--f-mono); font-size: 11px; color: var(--mute); margin-top: 2px; }
+.proj-item .meta { font-family: var(--f-mono); font-size: 11px; color: var(--mute); text-align: right; }
+
+/* Project detail window */
+.proj-detail .vis {
+  width: 100%; aspect-ratio: 16/9; max-height: 260px;
+  border: var(--border-thin); border-radius: 8px;
+  overflow: hidden; background: var(--paper-2);
+  margin-bottom: 16px;
+}
+.proj-detail .vis svg { width: 100%; height: 100%; display: block; }
+.proj-detail .caption { font-family: var(--f-hand); font-size: 20px; color: var(--red); margin: 0 0 12px; line-height: 1.2; }
+.proj-detail .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+.proj-detail .tags span { font-family: var(--f-mono); font-size: 11px; padding: 3px 8px; border: 1.5px solid var(--ink); border-radius: 100px; background: var(--paper-2); }
+.proj-detail .links { display: flex; gap: 8px; margin-top: 18px; }
+.proj-detail .links a {
+  font-family: var(--f-display); font-weight: 600; font-size: 13px;
+  padding: 8px 14px; border: var(--border); border-radius: 8px;
+  background: var(--red); color: #fff; box-shadow: var(--shadow-sm);
+  display: inline-flex; gap: 6px; align-items: center;
+}
+.proj-detail .links a:hover { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--ink); }
+
+/* Writing list */
+.writing-list { display: flex; flex-direction: column; }
+.write-row { display: grid; grid-template-columns: 24px 1fr auto auto; gap: 12px; align-items: center; padding: 10px 0; border-top: 1.5px dashed var(--paper-3); font-size: 14px; cursor: not-allowed; }
+.write-row:first-child { border-top: 0; }
+.write-row .ic { color: var(--mute); }
+.write-row .nm { font-family: var(--f-display); font-weight: 600; }
+.write-row .tg { font-family: var(--f-mono); font-size: 10px; padding: 2px 7px; border: 1.5px solid var(--ink); border-radius: 100px; background: var(--paper-2); }
+.write-row .st { font-family: var(--f-hand); font-size: 17px; color: var(--red); }
+
+/* Contact card */
+.contact-card {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.contact-card .row a {
+  display: grid; grid-template-columns: 90px 1fr 20px;
+  gap: 12px; align-items: center;
+  padding: 10px 12px;
+  border: 1.5px solid var(--ink); border-radius: 8px;
+  background: var(--paper-2);
+  font-size: 14px;
+  transition: transform 120ms, background 120ms;
+}
+.contact-card .row a:hover { transform: translate(-1px,-1px); background: var(--yellow); }
+.contact-card .row .lab { font-family: var(--f-mono); font-size: 11px; color: var(--mute); letter-spacing: 0.1em; text-transform: uppercase; }
+.contact-card .row .val { font-family: var(--f-display); font-weight: 500; }
+
+/* Now playing widget */
+.now-card {
+  background: var(--ink); color: var(--paper);
+  border-radius: 8px; padding: 16px;
+}
+.now-card .lab { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--yellow); margin-bottom: 8px; }
+.now-card .h { font-family: var(--f-display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; margin: 0 0 10px; }
+.now-card .list { display: flex; flex-direction: column; gap: 6px; font-family: var(--f-mono); font-size: 12px; }
+.now-card .list .b { color: var(--paper); font-family: var(--f-sans); font-size: 14px; font-weight: 500; }
+
+/* README content */
+.readme {
+  font-family: var(--f-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  background: var(--paper-2);
+  border-radius: 6px;
+  padding: 18px 22px;
+}
+.readme h1 { font-family: var(--f-display); font-size: 28px; margin: 0 0 4px; letter-spacing: -0.025em; color: var(--ink); font-weight: 700; }
+.readme h1 + p { color: var(--mute); margin-top: 0; }
+.readme h2 { font-family: var(--f-display); font-size: 16px; margin: 16px 0 6px; letter-spacing: -0.01em; color: var(--ink); font-weight: 700; border-bottom: 1.5px solid var(--ink); padding-bottom: 4px; }
+.readme p { margin: 0 0 8px; }
+.readme code { background: var(--paper); padding: 1px 5px; border-radius: 3px; border: 1px solid var(--ink); font-size: 12px; }
+.readme ul { margin: 0 0 8px; padding-left: 20px; }
+.readme ul li { margin-bottom: 4px; }
+.readme .ascii { font-family: var(--f-pixel, var(--f-mono)); font-size: 14px; line-height: 1.1; color: var(--red); white-space: pre; margin: 0 0 12px; }
+
+/* Sticky note window */
+.sticky-note { background: var(--yellow); }
+.sticky-note .window-title { background: color-mix(in oklab, var(--yellow) 80%, var(--ink) 8%); background-image: repeating-linear-gradient(0deg, color-mix(in oklab, var(--yellow) 80%, var(--ink) 8%) 0 3px, color-mix(in oklab, var(--yellow) 65%, var(--ink) 20%) 3px 6px); }
+.sticky-note .window-body { background: var(--yellow); }
+.sticky-note .window-body.padded { padding: 22px 24px; }
+.sticky-note .note-h { font-family: var(--f-hand); font-size: 32px; color: var(--ink); margin: 0 0 8px; line-height: 1; }
+.sticky-note .note-body { font-family: var(--f-hand); font-size: 22px; line-height: 1.35; color: var(--ink); }
+.sticky-note .note-body strong { background: var(--ink); color: var(--yellow); padding: 0 4px; }
+
+/* Command Palette */
+.cmdk-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: color-mix(in oklab, var(--ink) 55%, transparent);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 12vh;
+  animation: fadeIn 160ms ease-out;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.cmdk {
+  width: min(540px, 92vw);
+  background: var(--paper);
+  border: var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: cmdkIn 200ms cubic-bezier(.2,.6,.2,1);
+}
+@keyframes cmdkIn { from { opacity: 0; transform: translateY(-8px) scale(.97); } to { opacity: 1; transform: none; } }
+.cmdk-input {
+  width: 100%; padding: 16px 18px;
+  background: transparent; border: 0; outline: 0;
+  font-family: var(--f-display); font-size: 17px; font-weight: 500;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+.cmdk-input::placeholder { color: var(--mute); }
+.cmdk-list { max-height: 360px; overflow-y: auto; padding: 10px; }
+.cmdk-section-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); padding: 10px 12px 6px; }
+.cmdk-item { display: flex; align-items: center; gap: 14px; padding: 9px 12px; border-radius: 7px; font-size: 14px; font-weight: 500; cursor: pointer; }
+.cmdk-item .ico { color: var(--mute); width: 18px; font-family: var(--f-mono); font-size: 13px; }
+.cmdk-item .meta { margin-left: auto; font-family: var(--f-mono); font-size: 11px; color: var(--mute); }
+.cmdk-item[data-active="true"] { background: var(--yellow); }
+.cmdk-empty { padding: 26px; text-align: center; color: var(--mute); font-family: var(--f-mono); font-size: 12px; }
+
+/* Small helpers */
+.kbd { font-family: var(--f-mono); font-size: 10px; padding: 1px 5px; border: 1.5px solid var(--ink); border-radius: 3px; background: var(--paper-2); color: var(--ink); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+/* Portfolio data — single source of truth */
+window.PORTFOLIO_DATA = {
+  name: "Akshay Vilekar",
+  role: "Backend Engineer",
+  location: "Indore, India",
+  email: "contact@akshayvilekar.me",
+  github: "https://github.com/ak2703",
+  linkedin: "https://www.linkedin.com/in/akshay-vilekar-b25a2584/",
+  twitter: "https://twitter.com/ak2703",
+  twitterHandle: "@ak2703",
+
+  askMeAbout: [
+    { t: "kafka", c: "c-yellow" },
+    { t: "idempotency", c: "c-mint" },
+    { t: "rlhf data", c: "c-blue" },
+    { t: "postgres", c: "c-pink" },
+    { t: "search indexes", c: "c-orange" },
+    { t: "slow migrations", c: "c-red" },
+    { t: "spring boot", c: "c-purple" },
+    { t: "aws bills", c: "c-yellow" },
+    { t: "code reviews", c: "c-mint" },
+    { t: "on-call horror", c: "c-pink" },
+  ],
+
+  now: [
+    { k: "shipping",  v: "RLHF data tooling @ Micro1" },
+    { k: "reading",   v: "Designing Data-Intensive Apps", em: "(again)" },
+    { k: "learning",  v: "Rust + tokio", em: "for fun" },
+    { k: "fueled by", v: "filter coffee" },
+    { k: "open to",   v: "Sr / Staff IC roles" },
+    { k: "based in",  v: "Indore", em: "IST · UTC+5:30" },
+  ],
+
+  about: {
+    lead: "I build backend systems that quietly hold up the apps people actually use — services that have to stay up, stay fast, and stay correct under real load.",
+    body: [
+      "Eight years across e-commerce, education ERP, real estate, and now AI/ML data platforms. I gravitate toward the parts of a system that are hard to walk back: data models, event flows, the contract between services.",
+      "Recent work has centered on RLHF data pipelines and prompt-engineering tooling for foundation-model evaluation — building the unglamorous infrastructure that makes good model training possible."
+    ],
+    principles: [
+      "Boring tech, novel problems.",
+      "Make the wrong thing hard to do.",
+      "Observe, then optimize — never the other way around.",
+      "Idempotency is a love language."
+    ]
+  },
+
+  experience: [
+    {
+      when: "2023 → now",
+      role: "Sr. Software Engineer",
+      company: "Micro1",
+      place: "Remote",
+      tags: ["RLHF", "Spring", "Kafka", "Postgres"],
+      badge: "current",
+      detail: "Building backend systems for prompt-engineering workflows and RLHF-driven model evaluation. Designed data pipelines that ingest, deduplicate and route human-feedback signals into training datasets. Improved end-to-end annotation throughput and reduced bad-label leakage with stricter validation at the service layer."
+    },
+    {
+      when: "2021 → 2023",
+      role: "Software Engineer",
+      company: "Immobel",
+      place: "Colorado, US (remote)",
+      tags: ["Java", "Microservices", "AWS"],
+      detail: "Automated real-estate operational workflows and built cross-brand referral systems that unified lead data across business units. Owned services from design through on-call, with a focus on idempotency and replayability for revenue-critical flows."
+    },
+    {
+      when: "2018 → 2021",
+      role: "Full Stack Developer",
+      company: "School of the Nations",
+      place: "Macau, China",
+      tags: ["Spring", "Angular", "MySQL", "SOLR"],
+      detail: "Led the build of SONIS — a school-wide ERP serving thousands of users daily. Integrated Macau-Pay for in-app payments, redesigned the reporting service for 80% lower latency, and migrated read-heavy paths onto SOLR with eventual-consistency reconciliation."
+    },
+    {
+      when: "2017 → 2018",
+      role: "Software Engineer",
+      company: "Walkover",
+      place: "Indore, India",
+      tags: ["AWS", "Search", "Infra"],
+      detail: "Stood up secure AWS infrastructure end-to-end (VPC, RDS, ALB, IAM, S3, EFS, Route53, CodePipeline) and shipped an 8× search-performance improvement by re-thinking inverted-index sharding and query planning."
+    },
+    {
+      when: "2015 → 2017",
+      role: "SDE Intern",
+      company: "Hotwax Systems",
+      place: "Indore, India",
+      tags: ["IoT", "Analytics"],
+      detail: "Designed Bluetooth/Wi-Fi data collection and hotspot analytics for in-store behavior, lifting recommendation effectiveness 30% by stitching device-presence data into the product graph."
+    }
+  ],
+
+  skills: [
+    { group: "Languages",  items: [["Java", "8 yrs"], ["TypeScript", "4 yrs"], ["Python", "3 yrs"], ["SQL", "8 yrs"]] },
+    { group: "Backend",    items: [["Spring Boot", "core"], ["Kafka", "core"], ["gRPC", "ok"], ["REST / GraphQL", "ok"]] },
+    { group: "Data",       items: [["PostgreSQL", "core"], ["MySQL", "core"], ["Redis", "ok"], ["SOLR / Elastic", "ok"]] },
+    { group: "Infra",      items: [["AWS", "core"], ["Docker / k8s", "ok"], ["Terraform", "ok"], ["CI/CD", "core"]] },
+  ],
+
+  projects: [
+    {
+      n: "01",
+      title: "reinforce-backend",
+      sub: "rlhf · data platform · 2024",
+      caption: "the unglamorous plumbing behind good model evals",
+      desc: "A backend for reinforcement learning through human feedback — collects, validates and routes annotator signals into datasets ready for model training.",
+      stack: ["Java", "Spring", "Kafka", "Postgres"],
+      href: "https://github.com/ak2703/reinforce-backend",
+      vis: "rlhf"
+    },
+    {
+      n: "02",
+      title: "SONIS",
+      sub: "edu · erp · 2018→2021",
+      caption: "billing, payroll, reports — for thousands of kids",
+      desc: "End-to-end school operations platform: admissions, billing, payroll, reporting. Owned the reporting rewrite that cut p95 by 80% and the Macau-Pay payments integration.",
+      stack: ["Spring", "Angular", "MySQL", "SOLR"],
+      href: "https://github.com/ak2703",
+      vis: "erp"
+    },
+    {
+      n: "03",
+      title: "referral-graph",
+      sub: "real-estate · routing · 2022",
+      caption: "leads find the right agent. attribution stays clean.",
+      desc: "Unified referral and conversion data from multiple real-estate brands into one routing engine. Revenue-critical flow with full replay/audit.",
+      stack: ["Java", "AWS", "Postgres"],
+      href: "https://github.com/ak2703",
+      vis: "graph"
+    },
+    {
+      n: "04",
+      title: "search re-arch",
+      sub: "infra · perf · 2018",
+      caption: "8× faster. zero changes to the engine.",
+      desc: "Re-sharded an inverted index and rewrote the query planner around the actual access pattern, taking median search latency from sluggish to fast.",
+      stack: ["Java", "AWS", "Search"],
+      href: "https://github.com/ak2703",
+      vis: "search"
+    },
+  ],
+
+  writing: [
+    { tag: "essay",       title: "What I learned shipping RLHF pipelines",       when: "soonish" },
+    { tag: "notes",       title: "Idempotency keys — but for analytics events",  when: "in flight" },
+    { tag: "case-study",  title: "8× faster search without changing the engine", when: "drafting" },
+  ],
+
+  education: {
+    school: "Sri Vaishnav Institute of Technology and Science",
+    degree: "B.E., Computer Science",
+    years: "2013 → 2017",
+    blurb: "Data Structures, Algorithms, DBMS, Operating Systems, Computer Architecture, AI.",
+    extras: "+ self-directed Deep Learning, Data Science, Cloud and full-stack tracks alongside."
+  },
+
+  marquee: [
+    "AVAILABLE FOR SENIOR / STAFF IC ROLES",
+    "BACKEND ✦ DISTRIBUTED SYSTEMS ✦ DATA",
+    "REMOTE-FIRST",
+    "JAVA ✦ SPRING ✦ KAFKA ✦ POSTGRES ✦ AWS",
+    "BASED IN INDORE, INDIA",
+    "EST. 2017",
+  ]
+};
+</script>
+
+<script type="text/babel">
+/* Desktop icons — SVG glyphs for files, folders, apps */
+
+const FolderIcon = ({ color = "var(--yellow)" }) => (
+  <svg viewBox="0 0 64 56" fill="none">
+    <path d="M3 12 L24 12 L29 6 L40 6 L40 14 L3 14 Z" fill={color} stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round"/>
+    <path d="M3 13 L61 13 L61 51 L3 51 Z" fill={color} stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round"/>
+    <path d="M3 18 L61 18" stroke="var(--ink)" strokeWidth="1.5" opacity="0.5"/>
+    <path d="M40 6 L40 14" stroke="var(--ink)" strokeWidth="2.5"/>
+  </svg>
+);
+
+const DocIcon = ({ color = "var(--paper-2)", glyph = null }) => (
+  <svg viewBox="0 0 52 64" fill="none">
+    <path d="M5 3 L36 3 L48 15 L48 60 L5 60 Z" fill={color} stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round"/>
+    <path d="M36 3 L36 15 L48 15" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round"/>
+    {glyph || (
+      <>
+        <line x1="11" y1="25" x2="40" y2="25" stroke="var(--ink)" strokeWidth="1.5"/>
+        <line x1="11" y1="32" x2="42" y2="32" stroke="var(--ink)" strokeWidth="1.5"/>
+        <line x1="11" y1="39" x2="38" y2="39" stroke="var(--ink)" strokeWidth="1.5"/>
+        <line x1="11" y1="46" x2="42" y2="46" stroke="var(--ink)" strokeWidth="1.5"/>
+        <line x1="11" y1="53" x2="32" y2="53" stroke="var(--ink)" strokeWidth="1.5"/>
+      </>
+    )}
+  </svg>
+);
+
+const AppIcon = ({ color = "var(--blue)", glyph = "★" }) => (
+  <svg viewBox="0 0 64 64" fill="none">
+    <rect x="4" y="4" width="56" height="56" rx="12" fill={color} stroke="var(--ink)" strokeWidth="2.5"/>
+    <text x="32" y="44" textAnchor="middle" fontFamily="var(--f-display)" fontSize="34" fontWeight="700" fill="var(--ink)">{glyph}</text>
+  </svg>
+);
+
+const MeIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none">
+    <rect x="6" y="4" width="52" height="56" rx="3" fill="var(--paper)" stroke="var(--ink)" strokeWidth="2.5"/>
+    <rect x="11" y="9" width="42" height="40" fill="var(--blue)" stroke="var(--ink)" strokeWidth="2"/>
+    <path d="M11 49 L11 41 Q 18 32 32 32 Q 46 32 53 41 L53 49 Z" fill="var(--ink)"/>
+    <circle cx="32" cy="26" r="9" fill="var(--paper)" stroke="var(--ink)" strokeWidth="2"/>
+    <path d="M23 24 Q 24 17 32 16 Q 40 17 41 24" fill="var(--ink)"/>
+    <text x="32" y="57" textAnchor="middle" fontFamily="var(--f-hand)" fontSize="10" fill="var(--ink)">akshay</text>
+  </svg>
+);
+
+const TrashIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none">
+    <rect x="14" y="14" width="36" height="10" rx="2" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="2.5"/>
+    <path d="M16 24 L48 24 L45 56 L19 56 Z" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round"/>
+    <line x1="24" y1="32" x2="24" y2="50" stroke="var(--ink)" strokeWidth="1.8"/>
+    <line x1="32" y1="32" x2="32" y2="50" stroke="var(--ink)" strokeWidth="1.8"/>
+    <line x1="40" y1="32" x2="40" y2="50" stroke="var(--ink)" strokeWidth="1.8"/>
+    <path d="M26 14 L26 10 L38 10 L38 14" stroke="var(--ink)" strokeWidth="2"/>
+  </svg>
+);
+
+const MailIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none">
+    <rect x="6" y="14" width="52" height="38" rx="4" fill="var(--red)" stroke="var(--ink)" strokeWidth="2.5"/>
+    <path d="M6 18 L32 38 L58 18" fill="none" stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round"/>
+    <rect x="22" y="6" width="20" height="12" fill="var(--paper)" stroke="var(--ink)" strokeWidth="2"/>
+  </svg>
+);
+
+const MusicIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none">
+    <rect x="4" y="4" width="56" height="56" rx="12" fill="var(--pink)" stroke="var(--ink)" strokeWidth="2.5"/>
+    <circle cx="32" cy="32" r="18" fill="var(--paper)" stroke="var(--ink)" strokeWidth="2"/>
+    <circle cx="32" cy="32" r="4" fill="var(--ink)"/>
+    <path d="M40 18 L40 32" stroke="var(--ink)" strokeWidth="3"/>
+    <ellipse cx="38" cy="33" rx="4" ry="3" fill="var(--ink)"/>
+  </svg>
+);
+
+const ReadmeIcon = () => (
+  <svg viewBox="0 0 52 64" fill="none">
+    <path d="M5 3 L36 3 L48 15 L48 60 L5 60 Z" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round"/>
+    <path d="M36 3 L36 15 L48 15" fill="none" stroke="var(--ink)" strokeWidth="2.5"/>
+    <rect x="11" y="22" width="32" height="32" fill="var(--ink)" rx="2"/>
+    <text x="27" y="44" textAnchor="middle" fontFamily="var(--f-display)" fontSize="12" fontWeight="700" fill="var(--paper)">README</text>
+  </svg>
+);
+
+const StickyIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none">
+    <rect x="8" y="8" width="48" height="48" rx="2" fill="var(--yellow)" stroke="var(--ink)" strokeWidth="2.5" transform="rotate(-3 32 32)"/>
+    <line x1="16" y1="22" x2="44" y2="22" stroke="var(--ink)" strokeWidth="1.5" transform="rotate(-3 32 32)"/>
+    <line x1="16" y1="30" x2="46" y2="30" stroke="var(--ink)" strokeWidth="1.5" transform="rotate(-3 32 32)"/>
+    <line x1="16" y1="38" x2="40" y2="38" stroke="var(--ink)" strokeWidth="1.5" transform="rotate(-3 32 32)"/>
+  </svg>
+);
+
+const HddIcon = () => (
+  <svg viewBox="0 0 64 64" fill="none">
+    <rect x="6" y="10" width="52" height="44" rx="4" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="2.5"/>
+    <rect x="12" y="16" width="40" height="22" fill="var(--ink)" rx="2"/>
+    <text x="32" y="30" textAnchor="middle" fontFamily="var(--f-mono)" fontSize="9" fontWeight="700" fill="var(--mint)">akshay.OS</text>
+    <circle cx="14" cy="46" r="2" fill="var(--mint)"/>
+    <circle cx="22" cy="46" r="2" fill="var(--red)"/>
+    <circle cx="30" cy="46" r="2" fill="var(--yellow)"/>
+  </svg>
+);
+</script>
+
+<script type="text/babel">
+/* Window content components for akshay.os */
+
+const { useState: wuseState } = React;
+
+function WelcomeWin({ onOpenNote }) {
+  return (
+    <div className="welcome">
+      <div className="hi">hi, i'm akshay 👋</div>
+      <h1>
+        I build <span className="hl">backend systems</span> that <span className="scribble">don't fall over</span>.
+      </h1>
+      <p>
+        Eight years shipping the parts of software most people never see — <strong>data models</strong>,
+        event flows, the contract between services. Currently building backend tooling for
+        <strong> RLHF &amp; prompt-engineering workflows</strong> at <strong>Micro1</strong>.
+      </p>
+      <p style={{ marginTop: 16, fontFamily: "var(--f-mono)", fontSize: 13 }}>
+        ↓ <strong>tip:</strong> double-click any folder/file on the desktop to open it.
+        Or hit <span className="kbd">⌘K</span> to jump anywhere.
+      </p>
+      <div className="arrows">
+        <div className="row"><span className="k">currently</span><span className="v"><strong>Sr. Backend Engineer @ Micro1</strong></span></div>
+        <div className="row"><span className="k">based in</span><span className="v">Indore, India · IST</span></div>
+        <div className="row"><span className="k">stack</span><span className="v">java · spring · kafka · postgres · aws</span></div>
+        <div className="row"><span className="k">open to</span><span className="v">Senior / Staff IC roles</span></div>
+      </div>
+      <div style={{ marginTop: 18, paddingTop: 14, borderTop: "1.5px dashed var(--mute)" }}>
+        <div style={{ fontFamily: "var(--f-mono)", fontSize: 11, color: "var(--mute)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 10 }}>★ scratch pad</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          {["thoughts.txt", "todo.md", "kafka-notes.md", "untitled.txt"].map((nm) => (
+            <button key={nm}
+              style={{ background: "transparent", textAlign: "left", padding: "4px 6px", borderRadius: 4, fontFamily: "var(--f-mono)", fontSize: 13, color: "var(--ink)", cursor: "pointer", display: "flex", gap: 8, alignItems: "center" }}
+              onMouseOver={(e) => { e.currentTarget.style.background = "var(--paper-2)"; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = "transparent"; }}
+              onClick={() => onOpenNote?.({ title: nm, body: "" })}>
+              <span style={{ color: "var(--mute)" }}>📄</span>
+              <span style={{ flex: 1 }}>{nm}</span>
+              <span style={{ fontSize: 10, color: "var(--mute)" }}>0 b</span>
+            </button>
+          ))}
+        </div>
+        <div style={{ fontFamily: "var(--f-hand)", fontSize: 16, color: "var(--mute)", marginTop: 8 }}>
+          ↑ click to open as an empty note
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AboutWin({ data }) {
+  return (
+    <div className="win-body">
+      <h2 className="win-h">a short <em>introduction</em></h2>
+      <div className="win-sub">~/about-me.txt · 1.2k</div>
+      <p style={{ fontFamily: "var(--f-display)", fontSize: 22, fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.3, color: "var(--ink)", marginBottom: 16 }}>
+        {data.about.lead}
+      </p>
+      {data.about.body.map((p, i) => <p key={i}>{p}</p>)}
+
+      <h4 style={{ fontFamily: "var(--f-display)", fontSize: 13, margin: "26px 0 12px", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--mute)" }}>★ things i believe</h4>
+      <ul style={{ paddingLeft: 18, margin: 0, color: "var(--ink-2)", fontSize: 14, lineHeight: 1.7 }}>
+        {data.about.principles.map((p, i) => <li key={i}>{p}</li>)}
+      </ul>
+
+      <h4 style={{ fontFamily: "var(--f-display)", fontSize: 13, margin: "26px 0 12px", letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--mute)" }}>★ ask me about</h4>
+      <div className="stickers">
+        {data.askMeAbout.map(s => <span key={s.t} className={`sticker ${s.c}`}>{s.t}</span>)}
+      </div>
+    </div>
+  );
+}
+
+function ExperienceWin({ data }) {
+  const [open, setOpen] = wuseState(0);
+  return (
+    <div className="win-body">
+      <h2 className="win-h">where i've <em>built things</em></h2>
+      <div className="win-sub">~/experience/ · {data.experience.length} entries</div>
+      <div className="exp-list">
+        {data.experience.map((e, i) => (
+          <div key={i} className="exp-entry" data-open={open === i} onClick={() => setOpen(open === i ? -1 : i)}>
+            <div className="exp-entry-head">
+              <div>
+                <div className="role">
+                  {e.role} <span className="at">@ {e.company}</span>
+                  {e.badge && <span className="badge">{e.badge}</span>}
+                </div>
+                <div className="place">{e.place}</div>
+              </div>
+              <div className="when">{e.when}</div>
+            </div>
+            <div className="tags">
+              {e.tags.map((t, j) => <span key={t} className={`chip c${(j%4)+1}`}>{t}</span>)}
+            </div>
+            <div className="detail"><div><p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: "var(--ink-2)" }}>{e.detail}</p></div></div>
           </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SkillsWin({ data }) {
+  return (
+    <div className="win-body">
+      <h2 className="win-h">stack <em>i reach for</em></h2>
+      <div className="win-sub">~/skills.app · 4 groups</div>
+      <div className="stack-list">
+        {data.skills.map(g => (
+          <div key={g.group} className="stack-group">
+            <h4>{g.group}</h4>
+            <ul>
+              {g.items.map(([n, lvl]) => <li key={n}><span>{n}</span><span className="lvl">{lvl}</span></li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProjVis({ kind }) {
+  if (kind === "rlhf") return (
+    <svg viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="var(--paper)"/>
+      {[0,1,2,3,4].map(i => <circle key={i} cx="60" cy={60+i*40} r="10" fill="var(--blue)" stroke="var(--ink)" strokeWidth="1.5"/>)}
+      {[0,1,2,3,4].map(i => <line key={i} x1="70" y1={60+i*40} x2="170" y2="150" stroke="var(--ink)" strokeWidth="1"/>)}
+      <rect x="170" y="125" width="80" height="50" rx="6" fill="var(--yellow)" stroke="var(--ink)" strokeWidth="2"/>
+      <text x="210" y="155" textAnchor="middle" fontFamily="var(--f-mono)" fontSize="11" fill="var(--ink)" fontWeight="600">queue</text>
+      <line x1="250" y1="150" x2="310" y2="150" stroke="var(--ink)" strokeWidth="2" strokeDasharray="4 3"/>
+      <polygon points="310,150 304,146 304,154" fill="var(--ink)"/>
+      <rect x="312" y="115" width="70" height="70" rx="8" fill="var(--red)" stroke="var(--ink)" strokeWidth="2"/>
+      <text x="347" y="155" textAnchor="middle" fontFamily="var(--f-mono)" fontSize="11" fill="#fff" fontWeight="600">model</text>
+      <text x="20" y="285" fill="var(--mute)" fontFamily="var(--f-mono)" fontSize="10">annotators → queue → train</text>
+    </svg>
+  );
+  if (kind === "erp") return (
+    <svg viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="var(--paper)"/>
+      {Array.from({length: 9}).map((_, i) => {
+        const colors = ["var(--blue)", "var(--mint)", "var(--yellow)", "var(--pink)"];
+        return <rect key={i} x="30" y={36 + i*26} width={110 + Math.sin(i*1.3)*60 + 60} height="14" rx="3" fill={colors[i%4]} stroke="var(--ink)" strokeWidth="1.5"/>;
+      })}
+      <text x="30" y="285" fill="var(--mute)" fontFamily="var(--f-mono)" fontSize="10">sonis · reporting · p95 ↓ 80%</text>
+    </svg>
+  );
+  if (kind === "graph") return (
+    <svg viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="var(--paper)"/>
+      {[[80,80,"var(--red)"],[200,60,"var(--blue)"],[320,90,"var(--yellow)"],[110,180,"var(--mint)"],[210,200,"var(--pink)"],[310,200,"var(--blue)"],[200,260,"var(--red)"]].map(([x,y,c], i) =>
+        <circle key={i} cx={x} cy={y} r="11" fill={c} stroke="var(--ink)" strokeWidth="1.5"/>
+      )}
+      {[[80,80,200,60],[200,60,320,90],[80,80,110,180],[200,60,210,200],[320,90,310,200],[110,180,210,200],[210,200,310,200],[210,200,200,260]].map(([x1,y1,x2,y2], i) =>
+        <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="var(--ink)" strokeWidth="1.5"/>
+      )}
+      <text x="20" y="285" fill="var(--mute)" fontFamily="var(--f-mono)" fontSize="10">cross-brand referral graph</text>
+    </svg>
+  );
+  if (kind === "search") return (
+    <svg viewBox="0 0 400 300">
+      <rect width="400" height="300" fill="var(--paper)"/>
+      <text x="30" y="50" fill="var(--mute)" fontFamily="var(--f-mono)" fontSize="11">BEFORE</text>
+      <rect x="30" y="60" width="320" height="20" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="1.5"/>
+      <rect x="30" y="60" width="280" height="20" fill="var(--mute)" stroke="var(--ink)" strokeWidth="1.5"/>
+      <text x="30" y="120" fill="var(--red)" fontFamily="var(--f-mono)" fontSize="11" fontWeight="700">AFTER</text>
+      <rect x="30" y="130" width="320" height="20" fill="var(--paper-2)" stroke="var(--ink)" strokeWidth="1.5"/>
+      <rect x="30" y="130" width="40" height="20" fill="var(--red)" stroke="var(--ink)" strokeWidth="1.5"/>
+      <text x="30" y="225" fill="var(--ink)" fontFamily="var(--f-display)" fontWeight="800" fontSize="58">8×</text>
+      <text x="115" y="225" fill="var(--ink)" fontFamily="var(--f-hand)" fontSize="26">faster.</text>
+      <text x="30" y="285" fill="var(--mute)" fontFamily="var(--f-mono)" fontSize="10">walkover · search re-arch</text>
+    </svg>
+  );
+  return null;
+}
+
+function ProjectsWin({ data, onOpen }) {
+  return (
+    <div className="win-body">
+      <h2 className="win-h">selected <em>projects</em></h2>
+      <div className="win-sub">~/projects/ · {data.projects.length} items · click to open</div>
+      <div className="proj-list">
+        {data.projects.map(p => (
+          <button key={p.title} className="proj-item" onClick={() => onOpen(p)}>
+            <div className="ic">
+              <DocIcon color="var(--mint)" glyph={
+                <>
+                  <rect x="11" y="22" width="30" height="3" fill="var(--ink)"/>
+                  <rect x="11" y="29" width="26" height="3" fill="var(--ink)"/>
+                  <rect x="11" y="36" width="20" height="3" fill="var(--red)"/>
+                </>
+              }/>
+            </div>
+            <div className="info">
+              <div className="nm">{p.title}</div>
+              <div className="sub">{p.sub}</div>
+            </div>
+            <div className="meta">{p.n}</div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ProjectDetailWin({ p }) {
+  return (
+    <div className="win-body proj-detail">
+      <div className="vis"><ProjVis kind={p.vis}/></div>
+      <h2 className="win-h">{p.title}</h2>
+      <div className="win-sub">{p.sub}</div>
+      <p className="caption">"{p.caption}"</p>
+      <p>{p.desc}</p>
+      <div className="tags">{p.stack.map(s => <span key={s}>{s}</span>)}</div>
+      <div className="links">
+        <a href={p.href} target="_blank" rel="noreferrer">View on GitHub ↗</a>
+      </div>
+    </div>
+  );
+}
+
+function WritingWin({ data, onOpenNote }) {
+  return (
+    <div className="win-body">
+      <h2 className="win-h">notes, <em>in progress</em></h2>
+      <div className="win-sub">~/writing/ · 0 published · 3 drafts · click to open</div>
+      <div className="writing-list">
+        {data.writing.map((w, i) => (
+          <div key={i} className="write-row" style={{ cursor: "pointer" }}
+               onClick={() => onOpenNote?.({
+                 title: w.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40) + ".md",
+                 body: `# ${w.title}\n\ntag: ${w.tag}\nstatus: ${w.when}\n\n(empty draft — start typing…)`
+               })}>
+            <span className="ic">✎</span>
+            <span className="nm">{w.title}</span>
+            <span className="tg">{w.tag}</span>
+            <span className="st">→ {w.when}</span>
+          </div>
+        ))}
+      </div>
+      <p style={{ marginTop: 18, fontFamily: "var(--f-hand)", fontSize: 18, color: "var(--mute)" }}>
+        i write slowly. it's a feature.
+      </p>
+    </div>
+  );
+}
+
+function NowWin({ data }) {
+  return (
+    <div className="win-body">
+      <div className="now-card">
+        <div className="lab">★ now playing</div>
+        <div className="h">currently shipping...</div>
+        <div className="list">
+          {data.now.map((n, i) => (
+            <div key={i}>
+              <span style={{ color: "var(--yellow)", marginRight: 6 }}>{n.k} ·</span>
+              <span className="b">{n.v}</span>
+              {n.em && <span style={{ color: "var(--pink)", fontFamily: "var(--f-hand)", fontSize: 18, marginLeft: 4 }}> {n.em}</span>}
+            </div>
+          ))}
         </div>
-        <div class="hero-canvas-wrap">
-          <canvas id="hero-canvas" aria-label="Animated 3D background"></canvas>
+      </div>
+    </div>
+  );
+}
+
+function ContactWin({ data }) {
+  return (
+    <div className="win-body">
+      <h2 className="win-h">say <em>hi</em></h2>
+      <div className="win-sub">3 ways to reach me · responses in IST</div>
+      <div className="contact-card">
+        <div className="row"><a href={`mailto:${data.email}`}>
+          <span className="lab">email</span><span className="val">{data.email}</span><span>↗</span>
+        </a></div>
+        <div className="row"><a href={data.linkedin} target="_blank" rel="noreferrer">
+          <span className="lab">linkedin</span><span className="val">/in/akshay-vilekar</span><span>↗</span>
+        </a></div>
+        <div className="row"><a href={data.github} target="_blank" rel="noreferrer">
+          <span className="lab">github</span><span className="val">@ak2703</span><span>↗</span>
+        </a></div>
+      </div>
+      <p style={{ marginTop: 20, fontFamily: "var(--f-hand)", fontSize: 19, color: "var(--red)", lineHeight: 1.3 }}>
+        no, i don't take recruiter spam personally —<br/>
+        but a thoughtful note goes very far.
+      </p>
+    </div>
+  );
+}
+
+function EducationWin({ data }) {
+  const e = data.education;
+  return (
+    <div className="win-body">
+      <h2 className="win-h">where i <em>started</em></h2>
+      <div className="win-sub">~/education.txt · est. 2017</div>
+      <div style={{ border: "var(--border)", borderRadius: 10, padding: 20, background: "var(--paper-2)", boxShadow: "var(--shadow-sm)" }}>
+        <div style={{ fontFamily: "var(--f-display)", fontWeight: 700, fontSize: 20, letterSpacing: "-0.018em", lineHeight: 1.15, marginBottom: 6 }}>{e.school}</div>
+        <div style={{ fontFamily: "var(--f-mono)", fontSize: 13, color: "var(--mute)", marginBottom: 2 }}>{e.degree}</div>
+        <div style={{ fontFamily: "var(--f-mono)", fontSize: 12, color: "var(--mute)" }}>{e.years}</div>
+      </div>
+      <p style={{ marginTop: 16, fontSize: 14, lineHeight: 1.7, color: "var(--ink-2)" }}>
+        <strong>Coursework</strong> — {e.blurb}
+      </p>
+      <p style={{ fontSize: 14, lineHeight: 1.7, color: "var(--ink-2)" }}>{e.extras}</p>
+    </div>
+  );
+}
+
+function ReadmeWin({ data }) {
+  return (
+    <div className="window-body padded">
+      <div className="readme">
+        <pre className="ascii">{`  ___  _  __ ___ _  _   _ __   __
+ / _ \\| |/ /' __/ |/_ \\ / _\\\\ \\ / /
+| (_) | ' <\\__ \\ _  __// _\\ \\ V /
+ \\___/|_|\\_\\___/_||_| \\___/ |_|  `}</pre>
+        <h1>README.md</h1>
+        <p># akshay vilekar · backend.engineer</p>
+        <h2>$ whoami</h2>
+        <p>Backend engineer based in <code>Indore, IN</code>. 8 years writing Java/Spring services that need to stay online, accurate, and not wake me at 3am. Currently building RLHF data infra at <code>Micro1</code>.</p>
+        <h2>$ ls -la skills/</h2>
+        <ul>
+          <li><code>java/</code> — 8 yrs, daily driver</li>
+          <li><code>spring-boot/</code> — core</li>
+          <li><code>kafka/</code> — core; partition-tuning therapy</li>
+          <li><code>postgres/</code> — core; explain plans are my love language</li>
+          <li><code>aws/</code> — VPC → IAM → Route53 → CodePipeline</li>
+        </ul>
+        <h2>$ cat principles.txt</h2>
+        <ul>
+          <li>Boring tech, novel problems.</li>
+          <li>Make the wrong thing hard to do.</li>
+          <li>Observe, then optimize — never the other way around.</li>
+          <li>Idempotency is a love language.</li>
+        </ul>
+        <h2>$ contact</h2>
+        <p>email · <code>{data.email}</code><br/>github · <code>@ak2703</code><br/>linkedin · <code>/in/akshay-vilekar</code></p>
+      </div>
+    </div>
+  );
+}
+
+function StickyWin() {
+  return (
+    <div className="window-body padded">
+      <div className="note-h">notes 📌</div>
+      <div className="note-body">
+        <p>open to <strong>senior / staff</strong> backend roles —<br/>esp. <strong>data infra, RLHF tooling,</strong> high-throughput Java.</p>
+        <p style={{ marginTop: 14, fontSize: 18 }}>↓ click <strong>contact.app</strong> if interested ↓</p>
+      </div>
+    </div>
+  );
+}
+</script>
+
+<script type="text/babel">
+/* Command palette */
+function CommandPalette({ open, onClose, openWin, extraItems = [] }) {
+  const [q, setQ] = React.useState("");
+  const [active, setActive] = React.useState(0);
+  const inputRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (open) { setQ(""); setActive(0); setTimeout(() => inputRef.current?.focus(), 30); }
+  }, [open]);
+
+  const items = React.useMemo(() => ([
+    { sec: "Open", icon: "📄", label: "welcome.rtf",   id: "welcome",    hint: "↵" },
+    { sec: "Open", icon: "👤", label: "about-me.txt",  id: "about",      hint: "↵" },
+    { sec: "Open", icon: "📁", label: "experience/",   id: "experience", hint: "↵" },
+    { sec: "Open", icon: "📁", label: "projects/",     id: "projects",   hint: "↵" },
+    { sec: "Open", icon: "⚙",  label: "skills.app",    id: "skills",     hint: "↵" },
+    { sec: "Open", icon: "📁", label: "writing/",      id: "writing",    hint: "↵" },
+    { sec: "Open", icon: "♪",  label: "now.app",       id: "now",        hint: "↵" },
+    { sec: "Open", icon: "💌", label: "contact.app",   id: "contact",    hint: "↵" },
+    { sec: "Open", icon: "🎓", label: "education.txt", id: "education",  hint: "↵" },
+    { sec: "Open", icon: "📌", label: "notes.sticky",  id: "sticky",     hint: "↵" },
+    { sec: "Open", icon: "📄", label: "README.md",     id: "readme",     hint: "↵" },
+    { sec: "Open", icon: "💾", label: "akshay.os",     id: "hdd",        hint: "↵" },
+    ...extraItems,
+    { sec: "Quick links", icon: "✉", label: "Email Akshay",   action: () => window.location.href = "mailto:contact@akshayvilekar.me" },
+    { sec: "Quick links", icon: "in", label: "Open LinkedIn",  action: () => window.open("https://www.linkedin.com/in/akshay-vilekar-b25a2584/", "_blank") },
+    { sec: "Quick links", icon: "𝕏", label: "Open Twitter",    action: () => window.open("https://twitter.com/ak2703", "_blank") },
+    { sec: "Quick links", icon: "gh", label: "Open GitHub",     action: () => window.open("https://github.com/ak2703", "_blank") },
+  ]), [extraItems]);
+
+  const filtered = React.useMemo(() => {
+    if (!q.trim()) return items;
+    const needle = q.toLowerCase();
+    return items.filter(i => i.label.toLowerCase().includes(needle) || i.sec.toLowerCase().includes(needle));
+  }, [q, items]);
+
+  React.useEffect(() => { setActive(0); }, [q]);
+
+  function pick(it) {
+    if (!it) return;
+    if (it.action) it.action();
+    else if (it.id) openWin(it.id);
+    onClose();
+  }
+
+  React.useEffect(() => {
+    if (!open) return;
+    function onKey(e) {
+      if (e.key === "Escape") { e.preventDefault(); onClose(); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); setActive(a => Math.min(filtered.length - 1, a + 1)); }
+      else if (e.key === "ArrowUp")   { e.preventDefault(); setActive(a => Math.max(0, a - 1)); }
+      else if (e.key === "Enter")     { e.preventDefault(); pick(filtered[active]); }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, filtered, active, onClose]);
+
+  if (!open) return null;
+  const groups = {};
+  filtered.forEach((it, i) => { (groups[it.sec] ||= []).push({ ...it, _idx: i }); });
+
+  return (
+    <div className="cmdk-overlay" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="cmdk" role="dialog">
+        <input ref={inputRef} className="cmdk-input" placeholder="search files & apps…" value={q} onChange={(e) => setQ(e.target.value)} />
+        <div className="cmdk-list">
+          {filtered.length === 0 && <div className="cmdk-empty">no matches.</div>}
+          {Object.entries(groups).map(([sec, list]) => (
+            <div key={sec}>
+              <div className="cmdk-section-label">{sec}</div>
+              {list.map(it => (
+                <div key={it.label} className="cmdk-item" data-active={it._idx === active}
+                     onMouseEnter={() => setActive(it._idx)} onClick={() => pick(it)}>
+                  <span className="ico">{it.icon}</span>
+                  <span>{it.label}</span>
+                  <span className="meta">{it.hint || ""}</span>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+    </div>
+  );
+}
+</script>
 
-      <section id="about" class="content-block">
-        <h2>About Me</h2>
-        <p>
-          I focus on microservices, AI-enabled backend systems, and cloud-native architecture. My work spans
-          Spring Boot, Kafka, PostgreSQL, and performance-first distributed design.
-        </p>
-      </section>
+<script type="text/babel">
+/* Desktop manager — menu bar, icons, windows, dock */
 
-      <section id="experience" class="content-block">
-        <h2>Experience</h2>
-        <div class="timeline">
-          <article class="card">
-            <h3>Senior Software Engineer · Micro1</h3>
-            <p class="meta">Oct 2023 - Present · Remote</p>
-            <p>
-              Improved deep learning workflows with data systems for prompt generation and RLHF-driven project flows.
-              Building data collection and analysis pipelines to improve prompt-engineering quality and model relevance.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Software Engineer · Immobel</h3>
-            <p class="meta">Oct 2021 - Jul 2023 · Colorado, US</p>
-            <p>
-              Automated real-estate product workflows, integrated multi-business referral data, and improved process efficiency
-              and profitability through cross-brand referral systems.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Full Stack Developer · School of the Nations</h3>
-            <p class="meta">Jun 2018 - Oct 2021 · Macau, China</p>
-            <p>
-              Led development of SONIS ERP at large scale, using Kafka, Spring Boot, and Angular. Integrated Macau-Pay and
-              improved reporting-service performance by 80% with MySQL and SOLR optimization.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Software Engineer · Walkover Web Solutions</h3>
-            <p class="meta">Oct 2017 - May 2018 · Indore, India</p>
-            <p>
-              Built secure AWS infrastructure (VPC, RDS, ALB, CodePipeline, IAM, S3, EFS, Route53, and more) and optimized
-              advanced search performance by 8x.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Software Developer Intern · Hotwax Systems</h3>
-            <p class="meta">May 2015 - May 2017 · Indore, India</p>
-            <p>
-              Designed Bluetooth/Wi-Fi data collection and hotspot analytics for in-store behavior, improving recommendation
-              effectiveness by 30%.
-            </p>
-          </article>
+const { useState, useEffect, useRef, useCallback } = React;
+
+function useDrag(getPos, onChange, dragHandleRef, enabled = true) {
+  useEffect(() => {
+    const el = dragHandleRef.current;
+    if (!el || !enabled) return;
+    let startX, startY, origX, origY;
+    function onDown(e) {
+      if (e.target.closest(".win-btn")) return;
+      e.preventDefault();
+      const p = "touches" in e ? e.touches[0] : e;
+      startX = p.clientX;
+      startY = p.clientY;
+      const cur = getPos();
+      origX = cur.x;
+      origY = cur.y;
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("mouseup", onUp);
+      window.addEventListener("touchmove", onMove, { passive: false });
+      window.addEventListener("touchend", onUp);
+    }
+    function onMove(e) {
+      if (e.cancelable) e.preventDefault();
+      const p = "touches" in e ? e.touches[0] : e;
+      onChange({ x: origX + (p.clientX - startX), y: Math.max(36, origY + (p.clientY - startY)) });
+    }
+    function onUp() {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+      window.removeEventListener("touchmove", onMove);
+      window.removeEventListener("touchend", onUp);
+    }
+    el.addEventListener("mousedown", onDown);
+    el.addEventListener("touchstart", onDown, { passive: false });
+    return () => {
+      el.removeEventListener("mousedown", onDown);
+      el.removeEventListener("touchstart", onDown);
+    };
+  }, [getPos, onChange, dragHandleRef, enabled]);
+}
+
+function Menu({ trigger, items, align = "left", openController }) {
+  const [open, setOpen] = useState(false);
+  const isOpen = openController ? openController.value === openController.id : open;
+  const setIsOpen = openController ? (v) => openController.set(v ? openController.id : null) : setOpen;
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    function onDoc(e) {
+      if (!ref.current?.contains(e.target)) setIsOpen(false);
+    }
+    function onKey(e) { if (e.key === "Escape") setIsOpen(false); }
+    document.addEventListener("mousedown", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => { document.removeEventListener("mousedown", onDoc); document.removeEventListener("keydown", onKey); };
+  }, [isOpen, setIsOpen]);
+
+  return (
+    <div className="menu" ref={ref}>
+      {trigger({ open: isOpen, toggle: () => setIsOpen(!isOpen) })}
+      {isOpen && (
+        <div className={`menu-dropdown ${align}`}>
+          {items.map((it, i) => {
+            if (it.divider) return <div key={i} className="menu-divider" />;
+            if (it.custom) return <div key={i}>{it.custom}</div>;
+            return (
+              <div key={i}
+                   className={`menu-row ${it.disabled ? "disabled" : ""}`}
+                   onClick={() => { if (it.disabled) return; it.action?.(); setIsOpen(false); }}>
+                <span className="ic">{it.icon || ""}</span>
+                <span className="lab">{it.label}</span>
+                {it.hint && <span className="hint">{it.hint}</span>}
+              </div>
+            );
+          })}
         </div>
-      </section>
+      )}
+    </div>
+  );
+}
 
-      <section id="education" class="content-block">
-        <h2>Education</h2>
-        <article class="card">
-          <h3>Sri Vaishnav Institute of Technology and Science</h3>
-          <p class="meta">B.E. in Computer Science · 2013 - 2017</p>
-          <p>
-            Studied DS, Algorithms, DBMS, OS, CA, and AI, with additional coursework in Deep Learning,
-            Data Science, Cloud Computing, and Full Stack Development.
-          </p>
-        </article>
-      </section>
+function Win({ win, focused, onFocus, onClose, onMin, onMax, onMove, children }) {
+  const titleRef = useRef(null);
+  const getPos = useCallback(() => ({ x: win.x, y: win.y }), [win.x, win.y]);
+  const handleChange = useCallback((p) => onMove(win.uid, p), [win.uid, onMove]);
+  useDrag(getPos, handleChange, titleRef, !win.maximized);
 
-      <section id="projects" class="content-block">
-        <h2>Projects</h2>
-        <div class="project-grid">
-          <article class="card project-card">
-            <h3>reinforce-backend</h3>
-            <p class="meta">Spring Boot</p>
-            <p>A platform for reinforcement learning through human feedback (RLHF).</p>
-            <a href="https://github.com/ak2703/reinforce-backend" target="_blank" rel="noreferrer">View Project</a>
-          </article>
-          <article class="card project-card">
-            <h3>More Projects</h3>
-            <p class="meta">GitHub Portfolio</p>
-            <p>Explore the complete set of backend, AI, and full-stack repositories.</p>
-            <a href="https://github.com/ak2703" target="_blank" rel="noreferrer">Open GitHub</a>
-          </article>
+  const style = win.maximized
+    ? { left: 0, top: 0, width: "100%", height: "100%", zIndex: win.z }
+    : { left: win.x, top: win.y, width: win.w, height: win.h, zIndex: win.z };
+
+  return (
+    <div
+      className={`window ${focused ? "focused" : ""} ${win.theme === "sticky" ? "sticky-note" : ""} ${win.minimized ? "minimized" : ""} ${win.maximized ? "maximized" : ""}`}
+      style={style}
+      onMouseDown={() => onFocus(win.uid)}>
+      <div className="window-title striped" ref={titleRef}>
+        <div className="window-buttons">
+          <button className="win-btn close" onMouseDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); onClose(win.uid); }} title="Close">×</button>
+          <button className="win-btn min"   onMouseDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); onMin(win.uid); }} title="Minimize">−</button>
+          <button className="win-btn max"   onMouseDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); onMax(win.uid); }} title={win.maximized ? "Restore" : "Maximize"}>+</button>
         </div>
-      </section>
-    </main>
+        <div className="window-name"><span className="ico">{win.icon}</span>{win.title}</div>
+        <div style={{ width: 60 }} />
+      </div>
+      <div className={`window-body ${win.padded !== false ? "padded" : ""}`}>{children}</div>
+      {win.statusBar && (
+        <div className="window-statusbar">
+          <span>{win.statusBar.left}</span><span>{win.statusBar.right}</span>
+        </div>
+      )}
+    </div>
+  );
+}
 
-    <footer>
-      <p>© 2026 Akshay Vilekar</p>
-    </footer>
+function DesktopIcon({ icon, name, onOpen }) {
+  const [selected, setSelected] = useState(false);
+  const lastClick = useRef(0);
+  function handleClick(e) {
+    e.stopPropagation();
+    const now = Date.now();
+    if (now - lastClick.current < 350) { onOpen(); setSelected(false); }
+    else { setSelected(true); setTimeout(() => setSelected(false), 2500); }
+    lastClick.current = now;
+  }
+  return (
+    <div className={`icon ${selected ? "selected" : ""}`} onClick={handleClick}
+         onDoubleClick={(e) => { e.stopPropagation(); onOpen(); }}>
+      {icon}
+      <div className="name">{name}</div>
+    </div>
+  );
+}
 
-    <script type="module" src="app.js"></script>
-  </body>
+function MenuClock() {
+  const [t, setT] = useState(() => fmt());
+  useEffect(() => { const id = setInterval(() => setT(fmt()), 1000); return () => clearInterval(id); }, []);
+  function fmt() {
+    const d = new Date();
+    const day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()];
+    const p = (n) => String(n).padStart(2, "0");
+    let h = d.getHours();
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    return `${day} ${p(h)}:${p(d.getMinutes())} ${ampm}`;
+  }
+  return <span>{t}</span>;
+}
+
+const SPAWN_POSITIONS = [
+  { x: 340, y: 80 },
+  { x: 400, y: 110 },
+  { x: 460, y: 140 },
+  { x: 300, y: 170 },
+  { x: 520, y: 90 },
+  { x: 360, y: 200 },
+];
+
+function buildSpec(id, data, openProject, payload, openNote) {
+  if (id === "project" && payload) {
+    return { uid: `project-${payload.title}`, title: payload.title, icon: "📄", w: 560, h: 560, content: <ProjectDetailWin p={payload} /> };
+  }
+  if (id === "note") {
+    const num = payload?.num || 1;
+    const title = payload?.title || `untitled-${num}.txt`;
+    return {
+      uid: payload?.uid || `note-${num}-${Date.now()}`,
+      title,
+      icon: "📄",
+      w: 420, h: 320,
+      statusBar: { left: "0 b · empty", right: "● unsaved" },
+      content: (
+        <div className="note-empty" contentEditable="true" suppressContentEditableWarning={true}
+             data-placeholder="(empty note. start typing…)">
+          {payload?.body || ""}
+        </div>
+      )
+    };
+  }
+  const map = {
+    welcome:    { uid: "welcome",    title: "welcome.rtf",   icon: "📄", w: 580, h: 540, statusBar: { left: "1.2 kb · text", right: "● saved" }, content: <WelcomeWin onOpenNote={openNote} /> },
+    about:      { uid: "about",      title: "about-me.txt",  icon: "👤", w: 600, h: 540, content: <AboutWin data={data} /> },
+    experience: { uid: "experience", title: "experience/",   icon: "📁", w: 660, h: 540, content: <ExperienceWin data={data} /> },
+    skills:     { uid: "skills",     title: "skills.app",    icon: "⚙",  w: 480, h: 520, content: <SkillsWin data={data} /> },
+    projects:   { uid: "projects",   title: "projects/",     icon: "📁", w: 580, h: 480, content: <ProjectsWin data={data} onOpen={(p) => openProject(p)} /> },
+    writing:    { uid: "writing",    title: "writing/",      icon: "📁", w: 560, h: 380, content: <WritingWin data={data} onOpenNote={openNote} /> },
+    now:        { uid: "now",        title: "now.app",       icon: "♪",  w: 480, h: 420, content: <NowWin data={data} /> },
+    contact:    { uid: "contact",    title: "contact.app",   icon: "💌", w: 480, h: 440, content: <ContactWin data={data} /> },
+    education:  { uid: "education",  title: "education.txt", icon: "🎓", w: 560, h: 420, content: <EducationWin data={data} /> },
+    sticky:     { uid: "sticky",     title: "notes.sticky",  icon: "📌", w: 360, h: 280, theme: "sticky", content: <StickyWin /> },
+    readme:     { uid: "readme",     title: "README.md",     icon: "📄", w: 640, h: 600, padded: false, content: <ReadmeWin data={data} /> },
+    hdd:        { uid: "hdd",        title: "akshay.os",     icon: "💾", w: 480, h: 360, padded: false, content: (
+      <div className="readme">
+        <pre className="ascii">{`  ╔════════════════════╗
+  ║   AKSHAY · OS v1   ║
+  ╚════════════════════╝`}</pre>
+        <h2>System info</h2>
+        <p>cpu · 1 brain, 2 cores (often kafka-bound)<br/>ram · ~12 tabs of stack overflow<br/>os · debian / mac / mind<br/>uptime · 9.4 yrs of shipping code<br/>locale · IST · UTC+5:30</p>
+        <h2>Mounted volumes</h2>
+        <ul>
+          <li><code>/work</code> · Micro1 — backend</li>
+          <li><code>/side</code> · reinforce-backend</li>
+          <li><code>/play</code> · rust + tokio</li>
+          <li><code>/idle</code> · filter coffee + podcasts</li>
+        </ul>
+      </div>
+    ) },
+    trash:      { uid: "trash",      title: "trash",         icon: "🗑", w: 420, h: 260, content: (
+      <div style={{ textAlign: "center", padding: "30px 20px" }}>
+        <div style={{ fontSize: 56, marginBottom: 12 }}>🗑</div>
+        <div style={{ fontFamily: "var(--f-display)", fontWeight: 700, fontSize: 20, marginBottom: 6 }}>trash is empty.</div>
+        <div style={{ fontFamily: "var(--f-hand)", fontSize: 18, color: "var(--mute)", lineHeight: 1.3 }}>
+          (i deleted that one bad bash alias.<br/>everything else stays.)
+        </div>
+      </div>
+    ) },
+  };
+  return map[id] || null;
+}
+
+function ContactHead({ data }) {
+  return (
+    <div className="menu-contact-head">
+      <div className="avatar">AV</div>
+      <div className="info">
+        <div className="nm">Akshay Vilekar</div>
+        <div className="sub">backend.engineer · indore, in</div>
+      </div>
+    </div>
+  );
+}
+
+function buildContactItems(data, openWin) {
+  return [
+    { custom: <ContactHead data={data} /> },
+    { icon: "✉", label: "Email",    hint: "contact@…",        action: () => window.location.href = `mailto:${data.email}` },
+    { icon: "in", label: "LinkedIn", hint: "/in/akshay-vilekar", action: () => window.open(data.linkedin, "_blank") },
+    { icon: "𝕏", label: "Twitter",  hint: data.twitterHandle, action: () => window.open(data.twitter, "_blank") },
+    { icon: "gh", label: "GitHub",   hint: "@ak2703",           action: () => window.open(data.github, "_blank") },
+    { divider: true },
+    { icon: "📇", label: "Open contact.app", hint: "↵",        action: () => openWin("contact") },
+  ];
+}
+
+function Desktop({ data }) {
+  const [windows, setWindows] = useState([]);
+  const [focusId, setFocusId] = useState(null);
+  const zRef = useRef(10);
+  const spawnIdx = useRef(0);
+  const noteCount = useRef(0);
+  const [cmd, setCmd] = useState(false);
+  const [openMenu, setOpenMenu] = useState(null);
+
+  useEffect(() => {
+    function onKey(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); setCmd((c) => !c); }
+      else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "n") { e.preventDefault(); openNote(); }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const openWin = useCallback((id, payload = null) => {
+    const spec = buildSpec(id, data, (p) => openWin("project", p), payload, (p) => openNote(p));
+    if (!spec) return;
+    zRef.current += 1;
+
+    setWindows((prev) => {
+      const existing = prev.find((w) => w.uid === spec.uid);
+      if (existing) {
+        setFocusId(spec.uid);
+        return prev.map((w) => w.uid === spec.uid ? { ...w, z: zRef.current, minimized: false } : w);
+      }
+      const isMobile = window.innerWidth < 760;
+      let pos;
+      if (isMobile) {
+        const vw = window.innerWidth;
+        const vh = window.innerHeight - 34 - 56;
+        pos = { x: 6, y: 44, w: Math.min(spec.w || 560, vw - 12), h: Math.min(spec.h || 440, vh - 16) };
+      } else {
+        const sp = SPAWN_POSITIONS[spawnIdx.current % SPAWN_POSITIONS.length];
+        spawnIdx.current += 1;
+        const vw = window.innerWidth, vh = window.innerHeight;
+        pos = {
+          x: Math.max(8, Math.min(sp.x, vw - (spec.w || 560) - 8)),
+          y: Math.max(44, Math.min(sp.y, vh - 140)),
+          w: spec.w || 560, h: spec.h || 440,
+        };
+      }
+      setFocusId(spec.uid);
+      return [...prev, { ...spec, ...pos, z: zRef.current, minimized: false, maximized: false }];
+    });
+  }, [data]);
+
+  const openNote = useCallback((payload = null) => {
+    noteCount.current += 1;
+    const merged = payload && payload.title
+      ? { ...payload, num: noteCount.current, uid: `note-${payload.title}-${noteCount.current}` }
+      : { num: noteCount.current };
+    openWin("note", merged);
+  }, [openWin]);
+
+  useEffect(() => { openWin("welcome"); }, [openWin]);
+
+  function closeWin(uid) { setWindows((prev) => prev.filter((w) => w.uid !== uid)); setFocusId(null); }
+  function minWin(uid)   { setWindows((prev) => prev.map((w) => w.uid === uid ? { ...w, minimized: !w.minimized } : w)); }
+  function maxWin(uid)   { setWindows((prev) => prev.map((w) => w.uid === uid ? { ...w, maximized: !w.maximized } : w)); }
+  function focusWin(uid) {
+    zRef.current += 1;
+    const z = zRef.current;
+    setFocusId(uid);
+    setWindows((prev) => prev.map((w) => w.uid === uid ? { ...w, z, minimized: false } : w));
+  }
+  function moveWin(uid, pos) {
+    setWindows((prev) => prev.map((w) => w.uid === uid ? { ...w, x: pos.x, y: pos.y } : w));
+  }
+
+  function tileWindows() {
+    setWindows((prev) => {
+      const visible = prev.filter(w => !w.minimized);
+      const n = visible.length;
+      if (n === 0) return prev;
+      const cols = Math.ceil(Math.sqrt(n));
+      const rows = Math.ceil(n / cols);
+      const vw = window.innerWidth, vh = window.innerHeight - 34 - 56;
+      const cw = Math.floor(vw / cols), ch = Math.floor(vh / rows);
+      const positions = new Map();
+      visible.forEach((w, i) => {
+        const r = Math.floor(i / cols);
+        const c = i % cols;
+        positions.set(w.uid, { x: c * cw + 6, y: r * ch + 6, w: cw - 12, h: ch - 12 });
+      });
+      return prev.map(w => positions.has(w.uid) ? { ...w, ...positions.get(w.uid), maximized: false } : w);
+    });
+  }
+
+  const menuController = { value: openMenu, set: setOpenMenu };
+
+  const DESKTOP_ITEMS = [
+    { id: "welcome",    name: "welcome.rtf",   icon: <DocIcon color="var(--paper)" /> },
+    { id: "about",      name: "about-me.txt",  icon: <MeIcon /> },
+    { id: "experience", name: "experience/",   icon: <FolderIcon color="var(--yellow)" /> },
+    { id: "projects",   name: "projects/",     icon: <FolderIcon color="var(--mint)" /> },
+    { id: "skills",     name: "skills.app",    icon: <AppIcon color="var(--purple)" glyph="⚙" /> },
+    { id: "writing",    name: "writing/",      icon: <FolderIcon color="var(--pink)" /> },
+    { id: "now",        name: "now.app",       icon: <MusicIcon /> },
+    { id: "contact",    name: "contact.app",   icon: <MailIcon /> },
+    { id: "education",  name: "education.txt", icon: <DocIcon color="var(--orange)" /> },
+    { id: "sticky",     name: "notes.sticky",  icon: <StickyIcon /> },
+    { id: "readme",     name: "README.md",     icon: <ReadmeIcon /> },
+    { id: "hdd",        name: "akshay.os",     icon: <HddIcon /> },
+    { id: "trash",      name: "trash",         icon: <TrashIcon /> },
+  ];
+
+  const akshayItems = [
+    { custom: <ContactHead data={data} /> },
+    { icon: "✉", label: "Email me",       hint: "↗", action: () => window.location.href = `mailto:${data.email}` },
+    { icon: "in", label: "LinkedIn",       hint: "↗", action: () => window.open(data.linkedin, "_blank") },
+    { icon: "𝕏", label: "Twitter",        hint: "↗", action: () => window.open(data.twitter, "_blank") },
+    { icon: "gh", label: "GitHub",         hint: "↗", action: () => window.open(data.github, "_blank") },
+    { divider: true },
+    { icon: "👤", label: "About me",      hint: "↵", action: () => openWin("about") },
+    { icon: "💾", label: "About this OS", hint: "↵", action: () => openWin("hdd") },
+    { divider: true },
+    { icon: "↗", label: "Open contact.app", action: () => openWin("contact") },
+  ];
+
+  const fileItems = [
+    { icon: "📄", label: "New Note",    hint: "⌘N", action: () => openNote() },
+    { icon: "📂", label: "Open…",       hint: "⌘K", action: () => setCmd(true) },
+    { divider: true },
+    { icon: "📄", label: "welcome.rtf",   action: () => openWin("welcome") },
+    { icon: "👤", label: "about-me.txt",  action: () => openWin("about") },
+    { icon: "📁", label: "projects/",     action: () => openWin("projects") },
+    { icon: "📁", label: "experience/",   action: () => openWin("experience") },
+    { divider: true },
+    { icon: "✕", label: "Close all windows", action: () => setWindows([]) },
+  ];
+  const editItems = [
+    { icon: "↶", label: "Undo",        hint: "⌘Z", disabled: true },
+    { icon: "↷", label: "Redo",        hint: "⇧⌘Z", disabled: true },
+    { divider: true },
+    { icon: "✄", label: "Cut",         hint: "⌘X", disabled: true },
+    { icon: "⎘", label: "Copy",        hint: "⌘C", disabled: true },
+    { icon: "📋", label: "Paste",      hint: "⌘V", disabled: true },
+    { divider: true },
+    { icon: "🔍", label: "Find",       hint: "⌘K", action: () => setCmd(true) },
+  ];
+  const viewItems = [
+    { icon: "▦", label: "Tile windows",    action: tileWindows },
+    { icon: "↻", label: "Restore desktop", action: () => { setWindows([]); openWin("welcome"); } },
+    { divider: true },
+    { icon: "♪", label: "Now playing",     action: () => openWin("now") },
+    { icon: "📌", label: "Sticky notes",   action: () => openWin("sticky") },
+    { icon: "🗑", label: "Trash",          action: () => openWin("trash") },
+  ];
+  const helpItems = [
+    { icon: "?", label: "Welcome",       action: () => openWin("welcome") },
+    { icon: "📖", label: "README.md",    action: () => openWin("readme") },
+    { icon: "💾", label: "About akshay.os", action: () => openWin("hdd") },
+    { divider: true },
+    { icon: "✉", label: "Contact me",   action: () => openWin("contact") },
+    { icon: "↗", label: "GitHub repo",   action: () => window.open(data.github, "_blank") },
+  ];
+
+  return (
+    <>
+      <div className="menubar">
+        <div className="apple">★</div>
+
+        <Menu
+          openController={{ id: "akshay", ...menuController }}
+          align="left"
+          trigger={({ open, toggle }) => (
+            <div className={`m-item bold ${open ? "open" : ""}`} onClick={toggle}>akshay.os</div>
+          )}
+          items={akshayItems}
+        />
+        <Menu
+          openController={{ id: "file", ...menuController }}
+          trigger={({ open, toggle }) => <div className={`m-item ${open ? "open" : ""}`} onClick={toggle}>File</div>}
+          items={fileItems}
+        />
+        <Menu
+          openController={{ id: "edit", ...menuController }}
+          trigger={({ open, toggle }) => <div className={`m-item ${open ? "open" : ""}`} onClick={toggle}>Edit</div>}
+          items={editItems}
+        />
+        <Menu
+          openController={{ id: "view", ...menuController }}
+          trigger={({ open, toggle }) => <div className={`m-item ${open ? "open" : ""}`} onClick={toggle}>View</div>}
+          items={viewItems}
+        />
+        <Menu
+          openController={{ id: "help", ...menuController }}
+          trigger={({ open, toggle }) => <div className={`m-item help ${open ? "open" : ""}`} onClick={toggle}>Help</div>}
+          items={helpItems}
+        />
+
+        <div className="spacer" />
+
+        <div className="meta">
+          <Menu
+            openController={{ id: "contact", ...menuController }}
+            align="right"
+            trigger={({ open, toggle }) => (
+              <button className={`contact-button ${open ? "open" : ""}`} onClick={toggle} aria-label="Contact menu">
+                <span style={{ fontSize: 13 }}>✉</span>
+                <span>contact</span>
+              </button>
+            )}
+            items={buildContactItems(data, openWin)}
+          />
+          <span className="hide-sm">indore, in</span>
+          <span className="live">online</span>
+          <MenuClock />
+        </div>
+      </div>
+
+      <div className="desktop" onMouseDown={() => setOpenMenu(null)}>
+        <div className="desktop-icons">
+          {DESKTOP_ITEMS.map((it) =>
+            <DesktopIcon key={it.id} icon={it.icon} name={it.name} onOpen={() => openWin(it.id)} />
+          )}
+        </div>
+
+        {windows.map((w) =>
+          <Win key={w.uid} win={w} focused={focusId === w.uid}
+               onFocus={focusWin} onClose={closeWin} onMin={minWin} onMax={maxWin} onMove={moveWin}>
+            {w.content}
+          </Win>
+        )}
+      </div>
+
+      <div className="dock">
+        <button className="start-btn" onClick={() => setCmd(true)}>
+          <span className="dot" /> start
+        </button>
+        <div className="open-list">
+          {windows.map((w) =>
+            <button key={w.uid}
+              className={`dock-tab ${focusId === w.uid && !w.minimized ? "active" : ""}`}
+              onClick={() => { if (focusId === w.uid && !w.minimized) minWin(w.uid); else focusWin(w.uid); }}>
+              <span>{w.icon}</span><span>{w.title}</span>
+            </button>
+          )}
+        </div>
+        <div className="meta-right">
+          <span className="clock hide-sm"><MenuClock /></span>
+          <button className="iconbtn" onClick={() => setCmd(true)} title="Open command palette">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <circle cx="7" cy="7" r="4.5" /><path d="M10.5 10.5 L14 14" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <CommandPalette open={cmd} onClose={() => setCmd(false)} openWin={openWin} extraItems={[
+        { sec: "Actions", icon: "📄", label: "New Note", action: () => openNote() },
+        { sec: "Actions", icon: "▦", label: "Tile windows", action: tileWindows },
+      ]} />
+    </>
+  );
+}
+
+function App() {
+  return <Desktop data={window.PORTFOLIO_DATA} />;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+</body>
 </html>
